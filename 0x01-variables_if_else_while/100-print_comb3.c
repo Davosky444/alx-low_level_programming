@@ -1,28 +1,31 @@
 #include <stdio.h>
-
 /**
-  * main - starting point of execution
-  * Prints all possible different combinations
-  * of two digits with sime conditions
-  * Return: 0 on success
+  * main - entry point
+  * 
+  * Return: alway returns 0
+  *
   */
 int main(void)
 {
-	int n, i;
+	int i;
+	int j;
 
-	for (n = 0 ; n < 9 ; n++)
+	for (i = 10; i <= 19; i++)
 	{
-		i = n + 1;
-		do {
-			putchar(n + '0');
-		        putchar(i + '0');
-			if (n < 8)
+		for (j = 10; j <= 19; j++)
+		{
+			if ((j % 10) > (i % 10))
 			{
+				putchar((i % 10) + '0');
+				putchar((j % 10) + '0');
+				if (i != 18 || j != 19)
+				{
 				putchar(',');
 				putchar(' ');
+				}
 			}
-			i++;
-		} while (i < 10);
+
+		}
 	}
 	putchar('\n');
 	return (0);
